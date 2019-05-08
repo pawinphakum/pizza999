@@ -20,5 +20,6 @@ from members import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^list', views.ListView.as_view(), name='list'),
+    url(r'^list/', views.ListView.as_view(), name='list'),
+    url(r'^list_m2m/', views.ListM2MView.as_view(), name='list_m2m'),
 ]
