@@ -16,3 +16,8 @@ class ListM2MView(ListView):
     template_name = 'members/list_m2m.html'
     context_object_name = 'pizzas'
     model = Pizza
+
+class ListM2M_2_View(ListView):
+    template_name = 'members/list_2_m2m.html'
+    context_object_name = 'toppings'
+    model = Topping

@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^list/', views.ListView.as_view(), name='list'),
     url(r'^list_m2m/', views.ListM2MView.as_view(), name='list_m2m'),
+    url(r'^list_2_m2m/', views.ListM2M_2_View.as_view(), name='list_2_m2m'),
 ]

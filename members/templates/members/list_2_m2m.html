@@ -1,0 +1,13 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>All Topping</h1>
+        {% for topping in toppings %}
+            <h3> {{ topping.name }} </h3>
+            {% for pizza in topping.pizza_set.all %}
+               {{ pizza.name }} <br>
+           {% endfor %}
+        {% endfor %}
+    </body>
+</html>
