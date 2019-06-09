@@ -7,16 +7,16 @@
             {{ customer.name }}
             <br>
 
-            {% for favorite in customer.favorite_set.all %}
-                i like {{ favorite.name }}.
-                <br>
-            {% endfor %}
-
-            <!-- ถ้าใช้ related_name ก็พิมพ์ด้วยชื่อที่ตั้ง ตามด้วย .all -->
-            <!--{% for favorite in customer.favorites.all %}
+            <!--{% for favorite in customer.favorite_set.all %}
                 i like {{ favorite.name }}.
                 <br>
             {% endfor %}-->
+
+            <!-- ถ้าใช้ related_name ก็พิมพ์ด้วยชื่อที่ตั้ง ตามด้วย .all -->
+            {% for favorite in customer.favorites.all %}
+                i like {{ favorite.name }}.
+                <br>
+            {% endfor %}
 
             <hr>
         {% endfor %}

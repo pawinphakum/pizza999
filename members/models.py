@@ -12,8 +12,14 @@ class Customer(models.Model):
 
 class Favorite(models.Model):
     name = models.CharField('หน้าพิซซ่าที่ชอบ', max_length=200)
-    #customer = models.ForeignKey(Customer, related_name='favorites', verbose_name='ลูกค้า', on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, verbose_name='ลูกค้า', on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer,
+                                 related_name='favorites',
+                                 verbose_name='ลูกค้า',
+                                 on_delete=models.CASCADE)
+    #customer = models.ForeignKey(Customer, verbose_name='ลูกค้า', on_delete=models.CASCADE)
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
         return self.name
 
