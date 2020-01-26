@@ -5,8 +5,13 @@ from django.db import models
 #----- ตัวอย่าง one-to-many
 class Customer(models.Model):
     name = models.CharField('ชื่อ นามสกุล', max_length=200)
+    tel = models.CharField('เบอร์โทร', max_length=200)
+    level = models.CharField('ระดับ', max_length=200)
     # customer.favorites.all อ้างถึง related_name เพื่อแสดง fovorite ทั้งหมดของ customer นี้
     # หรือถ้าไม่ได้กำหนด related_name ก็ใช้ _set ได้เช่น customer.favorite_set.all
+    class Meta:
+        ordering = ['-pk']
+
     def __str__(self):
         return self.name
 
@@ -18,7 +23,7 @@ class Favorite(models.Model):
                                  on_delete=models.CASCADE)
     #customer = models.ForeignKey(Customer, verbose_name='ลูกค้า', on_delete=models.CASCADE)
     class Meta:
-        ordering = ['id']
+        ordering = ['pk']
 
     def __str__(self):
         return self.name
